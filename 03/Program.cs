@@ -1,15 +1,25 @@
 ﻿// Задача 3. Задайте произвольный массив. Выведете его элементы, 
 // начиная с конца. Использовать рекурсию, не использовать циклы.
 
-void MyNumber(int n)
+Console.Clear();
+int String(string text)
 {
-    if (n == 0) return;
-    {
-        MyNumber(n - 1);
-        Console.WriteLine(n);
-    }
+  Console.Write(text);
+  int result = Convert.ToInt32(Console.ReadLine());
+  return result;
 }
 
-Console.Write("Введите число N: ");
-int N = Convert.ToInt32(Console.ReadLine());
-MyNumber(N);
+int Number(int N, int M)
+{
+  if (N == M) return N;
+  else Console.Write($"{Number(N, M + 1)}, ");
+  return M;
+}
+
+int N = String("Введите число: ");
+if (N < 1)
+{
+  Console.WriteLine("Ввдите положительное число!");
+  return;
+}
+Console.WriteLine(Number(N, 1));
